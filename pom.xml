@@ -55,6 +55,29 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+					<muleVersion>${muleVersion}</muleVersion>
+					<username>${username}</username>
+					<password>${password}</password>
+					<redeploy>${redeploy}</redeploy>
+					<environment>${environment}</environment>
+					<workerType>${workerType}</workerType>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -151,6 +174,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
+		<pluginRepository>
+			<id>mule-public</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+		</pluginRepository> 
     </pluginRepositories>
 
 </project>
